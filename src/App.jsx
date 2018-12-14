@@ -10,6 +10,11 @@ const printMyName = (name, age) => {
 
 printMyName('Max', '90');
 
+const multiply = (number) => {
+    return number * 2;
+}
+
+console.log(multiply(2));
 
  class App extends Component{
     state ={
@@ -32,7 +37,7 @@ class Human {
         this.gender = 'male';
     }
 
-    printMyGender(){
+    printGender(){
         console.log(this.gender);
     }
 }
@@ -45,15 +50,13 @@ class Person extends Human {
 
     }
 
-    printMyName(){
+    printMyName = () => {
         console.log(this.name);
     }
 }
 
 const person = new Person();
 person.printMyName();
-
-
 
 
 
