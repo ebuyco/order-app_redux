@@ -33,18 +33,22 @@ console.log(multiply(2));
 }
 
 class Human {
-   
-    gender = 'male';
+    constructor() {
+        this.gender = 'male';
+    }
 
-    printGender = () => {
+    printGender(){
         console.log(this.gender);
     }
 }
 
 class Person extends Human {
-   
-        name = 'Max';
-        gender = 'female';
+    constructor() {
+        super();
+        this.name = 'Max';
+        this.gender = 'female'
+
+    }
 
     printMyName = () => {
         console.log(this.name);
@@ -53,7 +57,7 @@ class Person extends Human {
 
 const person = new Person();
 person.printMyName();
-person.printGender();
+
 
 
 export default App;
