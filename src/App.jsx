@@ -1,59 +1,41 @@
 import React, { Component } from 'react';
+import Person from './Person/Person';
 
 
-const name = "ernie";
-const age = "28";
+const Header = "hello there";
 
-const printMyName = (name, age) => {
-    console.log(name, age);
-}
-
-printMyName('Max', '90');
-
-const multiply = (number) => {
-    return number * 2;
-}
-
-console.log(multiply(2));
-
- class App extends Component{
-    state ={
-        water: "ernie"
+class App extends Component {
+    state = {
+         persons : [
+             {name: 'Itlog', age: 28},
+             {name: 'Richard', age: 40},
+             {name: 'Eliamer', age: 29}
+         ],
+         otherState: 'some other value'
     }
-  
+
+    switchNameHandler = () => { 
+        //Dont do this  --- this.state.persons[0].name = 'Hahaha';
+        this.setState({
+            persons: [
+                {name: 'Maximillian Itlog', age: 29},
+                {name: 'Manu Ginobilli', age: 30},
+                {name: 'Eliamer', age: 29}
+            ]
+        })
+    }
+
     render(){
         return(
             <div className="App">
-                <h1 className="App-title">{name}</h1>
-                <h1 className="App-Age">{age}</h1>
-                <h2 className="App-title">{this.state.water}</h2>
+            <h1 style={{textAlign: "center"}}>{Header}</h1>
+            <button onClick={this.switchNameHandler}>Switch Name</button>
+             <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+             <Person name={this.state.persons[1].name} age={this.state.persons[1].age}> My Hobbies: Racing</Person>      
             </div>
         )
-    }
+       
+    } 
 }
-
-class Human {
-   
-    gender = 'male';
-
-    printGender = () => {
-        console.log(this.gender);
-    }
-}
-
-class Person extends Human {
-   
-        name = 'Max';
-        gender = 'female';
-
-    printMyName = () => {
-        console.log(this.name);
-    }
-}
-
-const person = new Person();
-person.printMyName();
-person.printGender();
-
 
 export default App;
