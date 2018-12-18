@@ -53,8 +53,23 @@ class App extends Component {
             alignItems: 'center',
             borderRadius: '0.5rem',
             color: '#ffffff',
-            fontWeight: '600'
-           
+            fontWeight: '600'     
+        };
+
+        let persons = null;
+
+        if (this.state.showPersons) {
+            persons = (
+                <div>
+                <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+                  <Person 
+                  name={this.state.persons[1].name} 
+                  age={this.state.persons[1].age}
+                  click={this.switchNameHandler.bind(this, 'Maxer!')}
+                  changed={this.nameChangeHandler}
+                  > My Hobbies: Racing</Person>  
+                </div> 
+            )
         }
 
         return(
@@ -62,19 +77,8 @@ class App extends Component {
             <h1 style={{textAlign: "center"}}>{Header}</h1>
             <button 
             style={btn}
-            onClick={this.togglePersonHandler}>Toggle Persons</button>
-           { 
-               this.state.showPersons === true ? 
-           <div>
-           <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-             <Person 
-             name={this.state.persons[1].name} 
-             age={this.state.persons[1].age}
-             click={this.switchNameHandler.bind(this, 'Maxer!')}
-             changed={this.nameChangeHandler}
-             > My Hobbies: Racing</Person>  
-           </div> : null
-           }    
+            onClick={this.togglePersonHandler}>Toggle Persons</button>    
+          {persons}
             </div>
         )
        
