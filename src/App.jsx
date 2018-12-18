@@ -69,7 +69,7 @@ class App extends Component {
                   changed={this.nameChangeHandler}
                   > My Hobbies: Racing</Person>  
                 </div> 
-            )
+            );
         }
 
         return(
