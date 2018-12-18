@@ -21,7 +21,7 @@
             4
         ],
         "prettier/prettier": [
-            "error", {"singleQuote": true, "trailingComma": "es6", "printWidth": 100 }],
+            "error", {"singleQuote": true, "trailingComma": "es5", "printWidth": 100 }],
           "react/prop-types": 0,
           "react/no-direct-mutation-state": 0,
           "react/no-find-dom-node": 0,
