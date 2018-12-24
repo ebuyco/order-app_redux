@@ -122,7 +122,7 @@ class Test extends Component {
         //     </div>
         // )
         return React.createElement('div', null, React.createElement('h1', {className: 'App'}, 'Does this work now'));
-        return React.createElement('div', 'null', React.createElement{'h1', null, 'test like this'});
+        return React.createElement('div', 'null', React.createElement('h1', null, 'test like this');
     }
 }
 
