@@ -11,8 +11,8 @@ const person = props => (
       onChange={props.changed}
       value={props.name}
     />
+    {Math.floor(Math.random() * 30)}
   </div>
-
 );
 
 const wrapper = {
