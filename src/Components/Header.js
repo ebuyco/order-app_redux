@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-class Header extends Component {
-  render() {
-    return (
-      <div style={Head}>
-        <h2 style={fontMenu}>{this.props.name}</h2>
-        <h2 style={{ color: '#000000', textAlign: 'center', margin: '2px' }}>{this.props.age}</h2>
-      </div>
-    );
-  }
-}
+const Header = props => (
+  <div style={Head}>
+    <h2 style={fontMenu}>{props.title}</h2>
+    <h3 style={{ color: '#000000', textAlign: 'center', margin: '2px' }}>{props.age}</h3>
+    <h4>{props.WNU}</h4>
+    <p>{props.children}</p>
+  </div>
+);
+
 
 const Head = {
   backgroundColor: '#009688',

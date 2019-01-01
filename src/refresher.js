@@ -122,6 +122,9 @@ class Test extends Component {
         //     </div>
         // )
         return React.createElement('div', null, React.createElement('h1', {className: 'App'}, 'Does this work now'));
+      
+        {Math.floor(Math.random() * 30)}
+
         return React.createElement('div', 'null', React.createElement('h1', null, 'test like this');
     }
 }
