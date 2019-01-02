@@ -3,6 +3,9 @@ import Person from './Person/Person';
 import Head from './Components/Header';
 import yellow from './assets/burger_edit.svg';
 
+import Validation from './Validation/Validation';
+import Char from './Char/Char';
+
 const Header = 'hello there';
 class App extends Component {
     state = {
@@ -11,6 +14,8 @@ class App extends Component {
         { id: '129923', name: 'Richard', age: 40 },
         { id: '1902334', name: 'Eliamer', age: 29 }
       ],
+      userInput: '',
+      header: 'Assignment 1',
       otherState: 'some other value',
       showPersons: false,
       submitted: false
@@ -52,6 +57,20 @@ class App extends Component {
       this.setState({ persons });
     }
 
+
+    inputChangeHandler = (event) => {
+      this.setState(
+        { userInput: event.target.value }
+      );
+    }
+
+    deleteCharHandler = (index) => {
+      const text = this.state.userInput.split('');
+      text.splice(index, 1);
+      const updatedText = text.join('');
+      this.setState({ userInput: updatedText });
+    };
+
     // calls = (event) => {
     //   this.setState({
     //     submitted: true
@@ -64,7 +83,7 @@ class App extends Component {
 
       if (this.state.showPersons) {
         persons = (
-          <div>
+          <div style={lista}>
             {this.state.persons.map((person, index) => (
               <Person
                 click={() => this.deletePersonHandler(index)}
@@ -78,13 +97,21 @@ class App extends Component {
         );
       }
 
+      const charList = this.state.userInput.split('').map((ch, index) => (
+        <Char
+          character={ch}
+          key={index}
+          clicked={() => this.deleteCharHandler(index)}
+        />
+      ));
+
+
       return (
         <div className='App' style={body}>
           <Head
             WNU='stateless'
             age='haha'
             title='ngalan'
-
           >Just learn</Head>
           <img src={yellow} alt='2ndLogo' style={logoYellow} />
           <h1 style={{ textAlign: 'center' }}>{Header}</h1>
@@ -96,6 +123,20 @@ class App extends Component {
             onClick={() => this.switchNameHandler.bind('Max')}
           >Hi this is a Test</button> */}
           {persons}
+
+          <hr />
+          <p style={{ textAlign: 'center', fontSize: '1em' }}>{this.state.header}</p>
+          <input
+            style={assignment}
+            type='text'
+            onChange={this.inputChangeHandler}
+            value={this.state.userInput}
+          />
+          <p>{this.state.userInput}</p>
+          <Validation
+            inputLength={this.state.userInput.length}
+          />
+          {charList}
         </div>
       );
     }
@@ -136,6 +177,19 @@ const logoYellow = {
   alignItems: 'center',
   textAlign: 'center',
   margin: '0 auto'
+};
+
+const lista = {
+  color: '#000000'
+};
+
+const assignment = {
+  textAlign: 'center',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  margin: '0 auto',
+
 };
 
 export default App;
