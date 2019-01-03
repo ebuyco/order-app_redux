@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
 import Person from './Person/Person';
 import Head from './Components/Header';
 import yellow from './assets/burger_edit.svg';
@@ -93,11 +92,7 @@ class App extends Component {
         alignItems: 'center',
         borderRadius: '0.5rem',
         color: '#ffffff',
-        fontWeight: '600',
-        ':hover': {
-          backgroundColor: 'lightgreen',
-          color: 'black'
-        }
+        fontWeight: '600'
       };
 
       let persons = null;
@@ -117,10 +112,6 @@ class App extends Component {
           </div>
         );
         btn.backgroundColor = '#00BBD3';
-        btn[':hover'] = {
-          backgroundColor: 'salmon',
-          color: 'black'
-        };
       }
 
       const charList = this.state.userInput.split('').map((ch, index) => (
@@ -216,4 +207,4 @@ const charlistStyle = {
   fontSize: '1em'
 };
 
-export default Radium(App);
+export default App;

@@ -1,0 +1,9 @@
+.red {
+    color: red !important;
+    text-align: left;
+}
+
+.green {
+    font-weight: italic !important;
+    text-align: 'center';
+}
