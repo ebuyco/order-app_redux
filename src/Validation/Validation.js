@@ -23,4 +23,6 @@ const red = {
   fontSize: '2em'
 
 };
+
+
 export default Validation;

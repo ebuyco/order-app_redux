@@ -132,11 +132,11 @@ class App extends Component {
             onChange={this.inputChangeHandler}
             value={this.state.userInput}
           />
-          <p>{this.state.userInput}</p>
+          <p style={charlistStyle}>{this.state.userInput}</p>
           <Validation
             inputLength={this.state.userInput.length}
           />
-          {charList}
+          <h3>{charList}</h3>
         </div>
       );
     }
@@ -190,6 +190,11 @@ const assignment = {
   justifyContent: 'center',
   margin: '0 auto',
 
+};
+
+const charlistStyle = {
+  textAlign: 'center',
+  fontSize: '1em'
 };
 
 export default App;

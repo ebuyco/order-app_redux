@@ -12,10 +12,11 @@ const Char = (props) => {
       style={style}
       onClick={props.clicked}
     >
-      {props.character}
+      <h3>{props.character}</h3>
     </div>
   );
 };
+
 
 
 export default Char;
