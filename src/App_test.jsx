@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
 import Head from './Components/Header';
 import yellow from './assets/burger_edit.svg';
@@ -92,7 +93,11 @@ class App extends Component {
         alignItems: 'center',
         borderRadius: '0.5rem',
         color: '#ffffff',
-        fontWeight: '600'
+        fontWeight: '600',
+        ':hover': {
+          backgroundColor: 'lightgreen',
+          color: 'black'
+        }
       };
 
       let persons = null;
@@ -112,6 +117,10 @@ class App extends Component {
           </div>
         );
         btn.backgroundColor = '#00BBD3';
+        btn[':hover'] = {
+          backgroundColor: 'salmon',
+          color: 'black'
+        };
       }
 
       const charList = this.state.userInput.split('').map((ch, index) => (
@@ -132,38 +141,41 @@ class App extends Component {
       }
 
       return (
-        <div className='App' style={body}>
-          <Head
-            WNU='stateless'
-            age='haha'
-            title='ngalan'
-          >Just learn</Head>
-          <img src={yellow} alt='2ndLogo' style={logoYellow} />
-          <h1 className={classes.join('')}>{Header}</h1>
-          {/* <h1 style={{ textAlign: 'center' }}>{Header}</h1> */}
-          <button
-            style={btn}
-            onClick={this.togglePersonHandler}
-          >Toggle Persons</button>
-          {/* <button
+        <StyleRoot>
+          <div className='App' style={body}>
+            <Head
+              WNU='stateless'
+              age='haha'
+              title='ngalan'
+            >Just learn</Head>
+            <img src={yellow} alt='2ndLogo' style={logoYellow} />
+            <h1 className={classes.join('')}>{Header}</h1>
+            {/* <h1 style={{ textAlign: 'center' }}>{Header}</h1> */}
+            <button
+              style={btn}
+              onClick={this.togglePersonHandler}
+            >Toggle Persons</button>
+            {/* <button
             onClick={() => this.switchNameHandler.bind('Max')}
           >Hi this is a Test</button> */}
-          {persons}
+            {persons}
 
-          <hr />
-          <p style={{ textAlign: 'center', fontSize: '1em' }}>{this.state.header}</p>
-          <input
-            style={assignment}
-            type='text'
-            onChange={this.inputChangeHandler}
-            value={this.state.userInput}
-          />
-          <p style={charlistStyle}>{this.state.userInput}</p>
-          <Validation
-            inputLength={this.state.userInput.length}
-          />
-          <h3>{charList}</h3>
-        </div>
+            <hr />
+            <p style={{ textAlign: 'center', fontSize: '1em' }}>{this.state.header}</p>
+            <input
+              style={assignment}
+              type='text'
+              onChange={this.inputChangeHandler}
+              value={this.state.userInput}
+            />
+            <p style={charlistStyle}>{this.state.userInput}</p>
+            <Validation
+              inputLength={this.state.userInput.length}
+            />
+            <h3>{charList}</h3>
+          </div>
+        </StyleRoot>
+
       );
     }
 }
@@ -204,7 +216,8 @@ const assignment = {
 
 const charlistStyle = {
   textAlign: 'center',
-  fontSize: '1em'
+  fontSize: '1em',
+  width: '100%'
 };
 
-export default App;
+export default Radium(App);
