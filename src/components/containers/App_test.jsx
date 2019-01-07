@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Person from './Person/Person';
-import Head from './Components/Header';
-import yellow from './assets/burger_edit.svg';
+import Persons from '../components/Persons/Persons';
+import Char from '../components/Char/Char';
+import Validation from '../components/Validation/Validation';
+import classes from './App.css';
+import Head from './components/Header';
+import yellow from '../components/assets/burger_edit.svg';
 
-import Validation from './Validation/Validation';
-import Char from './Char/Char';
 
 const Header = 'hello there';
 class App extends Component {
@@ -79,40 +80,22 @@ class App extends Component {
     // }
 
     render() {
-      const btn = {
-        backgroundColor: '#00C05E',
-        font: 'inherit',
-        border: '1px solid blue',
-        padding: '8px',
-        cursor: 'pointer',
-        textAlign: 'center',
-        justifyContent: 'center',
-        margin: '0 auto',
-        display: 'flex',
-        alignItems: 'center',
-        borderRadius: '0.5rem',
-        color: '#ffffff',
-        fontWeight: '600',
-
-      };
-
       let persons = null;
+      let btnClass = '';
 
       if (this.state.showPersons) {
         persons = (
           <div style={lista}>
-            {this.state.persons.map((person, index) => (
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={event => this.nameChangeHandler(event, person.id)}
-              />
-            ))}
+            <Persons
+              persons={this.state.persons}
+              clicked={this.deletePersonHandler}
+              changed={this.nameChangeHandler}
+            />
+
           </div>
         );
-        btn.backgroundColor = '#00BBD3';
+
+        btnClass = classes.Red;
       }
 
       const charList = this.state.userInput.split('').map((ch, index) => (
@@ -123,27 +106,27 @@ class App extends Component {
         />
       ));
 
-      // const classes = ['red', 'green'.join('')];
-      const classes = [];
+
+      const assignedClasses = [];
       if (this.state.persons.length <= 2) {
-        classes.push('red'); // c;asses will be green
+        assignedClasses.push(classes.red); // c;asses will be green
       }
       if (this.state.persons.length <= 1) {
-        classes.push('green'); // classes will be red
+        assignedClasses.push(classes.bold); // classes will be red
       }
 
       return (
-        <div className='App' style={body}>
+        <div className={classes.App} style={body}>
           <Head
             WNU='stateless'
             age='haha'
             title='ngalan'
           >Just learn</Head>
           <img src={yellow} alt='2ndLogo' style={logoYellow} />
-          <h1 className={classes.join('')}>{Header}</h1>
+          <h1 className={assignedClasses.join('')}>{Header}</h1>
           {/* <h1 style={{ textAlign: 'center' }}>{Header}</h1> */}
           <button
-            style={btn}
+            className={btnClass}
             onClick={this.togglePersonHandler}
           >Toggle Persons</button>
           {/* <button
@@ -209,4 +192,4 @@ const charlistStyle = {
   width: '100%'
 };
 
-export default Radium(App);
+export default App;

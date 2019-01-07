@@ -5,4 +5,9 @@
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
+     border: 3px dashed blue;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 28px;
 }
+

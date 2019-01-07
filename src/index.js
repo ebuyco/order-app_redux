@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './App.css';
+import App from './components/containers/App';
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App title='Order Application' />, document.getElementById('root'));

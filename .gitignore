@@ -29,5 +29,7 @@ run_s3_enabled.sh
 .docs/
 settings.json
 .DS_Store
-.vscode
+.vscodes
+.eslint_backup.js
+yarn.lock
 yarn-error.log

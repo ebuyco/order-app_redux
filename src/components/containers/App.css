@@ -1,0 +1,37 @@
+.red {
+        color: red !important;
+        text-align: left;
+}
+
+.green {
+        font-weight: italic !important;
+        text-align: 'center';
+}
+
+.App button{
+        background-color: #00C05E;
+        font: inherit;
+        border: 1px solid blue;
+        padding: 8px;
+        cursor: pointer;
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        border-radius: 0.5rem;
+        color: #ffffff;
+        font-weight: 600;
+}
+
+.App button:hover{
+        background-color: seagreen;
+}
+
+.App button.red{
+        background-color: red;
+}
+
+.App button.red:hover{
+        background-color: salmon;
+}
