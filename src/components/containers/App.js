@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Persons from '../Persons/Persons';
 import Char from '../Char/Char';
 import Validation from '../Validation/Validation';
@@ -6,9 +6,10 @@ import Cockpit from '../Cockpit/Cockpit';
 import classes from './App.css';
 import Head from '../Header';
 import yellow from '../../assets/burger_edit.svg';
+import Aux from '../hoc/Aux';
+import withClass from '../hoc/withClass';
 
-
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     console.log('[App.js] Inside Constructor', props);
@@ -16,7 +17,7 @@ class App extends Component {
       persons: [
         { id: '129023', name: 'Itlog', age: 28 },
         { id: '129923', name: 'Richard', age: 40 },
-        { id: '1902334', name: 'Eliamer', age: 29 }
+        { id: '1902334', name: 'Success', age: 22 }
       ],
       userInput: '',
       header: 'Assignment 1',
@@ -33,6 +34,21 @@ class App extends Component {
   componentDidMount() {
     console.log('[App.js] Inside componentDidmount()');
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('[App.js] Inside shouldComponentUpdate()');
+  //   return nextState.persons !== this.state.persons ||
+  //   nextState.showPersons !== this.state.showPersons;
+  // }
+
+  componentWillUpdate() {
+    console.log('[App.js] Inside componentWillUpdate()');
+  }
+
+  componentDidUpdate() {
+    console.log('[App.js] Inside componentDidUpdate');
+  }
+
   // state = {
   //   persons: [
   //     { id: '129023', name: 'Itlog', age: 28 },
@@ -127,7 +143,14 @@ class App extends Component {
 
 
       return (
-        <div className={classes.App} style={body}>
+        <Aux style={body}>
+          <button onClick={() => {
+            this.setState({
+              showPersons: true
+            });
+          }}
+          >Show Persons</button>
+
           <Head
             WNU='stateless'
             age='haha'
@@ -158,7 +181,7 @@ class App extends Component {
             inputLength={this.state.userInput.length}
           />
           <h3>{charList}</h3>
-        </div>
+        </Aux>
       );
     }
 }
@@ -200,4 +223,4 @@ const charlistStyle = {
   width: '100%'
 };
 
-export default App;
+export default withClass(App, classes.App);

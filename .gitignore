@@ -18,6 +18,11 @@
 .env.test.local
 .env.production.local
 
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
 package.json
 package-lock.json
 .idea
@@ -29,7 +34,7 @@ run_s3_enabled.sh
 .docs/
 settings.json
 .DS_Store
-.vscodes
+.vscode
 .eslint_backup.js
 yarn.lock
 yarn-error.log

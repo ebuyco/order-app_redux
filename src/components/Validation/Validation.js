@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './Validation.css';
 
 
 const Validation = (props) => {
@@ -8,21 +9,10 @@ const Validation = (props) => {
     validationMessage = 'Text to short';
   }
   return (
-    <div style={red}>
+    <div className={classes.red}>
       <p>{validationMessage}</p>
     </div>
   );
 };
-
-const red = {
-  color: 'red',
-  textAlign: 'center',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontSize: '2em'
-
-};
-
 
 export default Validation;
