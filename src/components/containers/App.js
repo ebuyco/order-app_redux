@@ -23,7 +23,8 @@ class App extends PureComponent {
       header: 'Assignment 1',
       otherState: 'some other value',
       showPersons: false,
-      submitted: false
+      submitted: false,
+      toggleClicked: 0
     };
   }
 
@@ -88,7 +89,10 @@ class App extends PureComponent {
 
     togglePersonHandler = () => {
       const doesShow = this.state.showPersons;
-      this.setState({ showPersons: !doesShow });
+      this.setState(prevState => ({
+        showPersons: !doesShow,
+        toggleClicked: prevState.toggleClicked + 1
+      }));
     }
 
     deletePersonHandler = (personIndex) => {
